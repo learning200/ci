@@ -4,7 +4,7 @@
 
     <target name="all" depends="init">
     </target>
-	<!--³õÊ¼»¯:´´½¨Ä¿Â¼µÈ-->
+	<!--åˆå§‹åŒ–:åˆ›å»ºç›®å½•ç­‰-->
     <target name="init" >
         <echo>init project</echo>
         <mkdir dir="${report}"/>
