@@ -4,11 +4,27 @@
 
     <target name="all" depends="init">
     </target>
-	<!--初始化:创建目录等-->
+    <!--初始化:创建目录等-->
     <target name="init" >
         <echo>init project</echo>
         <mkdir dir="${report}"/>
         <mkdir dir="${phpdoc}"/>
         <echo>init success</echo>
+    </target>
+
+	    <!--运行项目预处理shell脚本并copy到存档目录-->
+    <target name="exeshell">
+        <chmod file="${basedir}/build.sh" perm="ugo+x"/>
+        <exec executable="${basedir}/build.sh">
+             <arg value="${project.name}"/>
+        </exec>
+        <echo>exec and copy to releasedir ${project.name} TAGS:${tags} build.sh success</echo>
+    </target>
+
+    <!--在jenkins-workspace构建打包-->
+    <target name="build" depends="clean,init">
+        <!--<echo>build source files begin</echo>-->
+        <antcall target="exeshell" />
+        <!--<echo>build source files success</echo>-->
     </target>
 </project>
