@@ -1,0 +1,14 @@
+<project name="p2pyun" default="all" basedir="..">
+    <property name="report" location="Report"/>
+    <property name="phpdoc" location="${report}/PHPdoc"/>
+
+    <target name="all" depends="init">
+    </target>
+	<!--初始化:创建目录等-->
+    <target name="init" >
+        <echo>init project</echo>
+        <mkdir dir="${report}"/>
+        <mkdir dir="${phpdoc}"/>
+        <echo>init success</echo>
+    </target>
+</project>
