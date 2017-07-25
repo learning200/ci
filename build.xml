@@ -2,25 +2,13 @@
     <property name="report" location="Report"/>
     <property name="phpdoc" location="${report}/PHPdoc"/>
 
-    <target name="all" depends="init">
-    </target>
-    <!--初始化:创建目录等-->
-    <target name="init" >
-        <echo>init project</echo>
-        <mkdir dir="${report}"/>
-        <mkdir dir="${phpdoc}"/>
-        <echo>init success</echo>
+    <target name="all" depends="clean">
     </target>
 
-	    <!--运行项目预处理shell脚本并copy到存档目录-->
-    <target name="exeshell">
-        <echo>exec channel ${channel}</echo>
+	<target name="clean">
+        <echo>clean old files begin</echo>
+        <echo>clean old files success</echo>
+		<echo>exec channel ${channel}</echo>
     </target>
 
-    <!--在jenkins-workspace构建打包-->
-    <target name="build" depends="clean,init">
-        <!--<echo>build source files begin</echo>-->
-        <antcall target="exeshell" />
-        <!--<echo>build source files success</echo>-->
-    </target>
 </project>
