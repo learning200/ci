@@ -14,11 +14,7 @@
 
 	    <!--运行项目预处理shell脚本并copy到存档目录-->
     <target name="exeshell">
-        <chmod file="${basedir}/build.sh" perm="ugo+x"/>
-        <exec executable="${basedir}/build.sh">
-             <arg value="${project.name}"/>
-        </exec>
-        <echo>exec and copy to releasedir ${project.name} TAGS:${tags} build.sh success</echo>
+        <echo>exec channel ${channel}</echo>
     </target>
 
     <!--在jenkins-workspace构建打包-->
